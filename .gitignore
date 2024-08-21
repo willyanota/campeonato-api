@@ -2,7 +2,9 @@
 /dist
 /node_modules
 #/.env
-/db/data
+
+#ignore /data/*
+db/data/*
 
 #secrets
 #/envs/.env.local
