@@ -84,7 +84,7 @@ describe("Equipe repositorio ORM", () => {
 
         expect(typeOrmMock.findOne).toHaveBeenNthCalledWith(1, {
           where: { id: 1 },
-          relations: ["categoria", "categoria.campeonato"],
+          relations: ["categoria", "categoria.campeonato", "grupo"],
         });
       });
 

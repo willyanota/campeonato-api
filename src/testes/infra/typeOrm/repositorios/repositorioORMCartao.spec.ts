@@ -130,7 +130,7 @@ describe("cartao repositorio ORM", () => {
 
       await expect(buscarCartaoPorId).rejects.toThrow(
         new InternalServerErrorException(
-          "Erro ao buscar o cartão no banco de dados.",
+          "Erro ao buscar cartão no banco de dados.",
         ),
       );
     });
