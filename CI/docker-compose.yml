@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  campeonato-api:
+    container_name: campeonato-api
+    build:
+      context: ..
+      dockerfile: "./CI/Dockerfile"
+    environment:
+      - NODE_ENV=local
+    ports:
+      - 3002:3000
+    volumes:
+      - ..:/var/api/
+    command: npm run start
+    #networks:
+    #default:
+    #external:
+    #name: web
