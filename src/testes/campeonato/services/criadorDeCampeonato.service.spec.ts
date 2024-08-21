@@ -17,7 +17,6 @@ describe("Criar campeonato", () => {
       inscricaoDataInicio: moment().subtract(1, "days").toDate(),
       inscricaoDataFim: new Date(),
       ativo: true,
-      exibirNoSite: false,
     };
     repositorioCampeonato = {
       buscarPorId: jest.fn(),

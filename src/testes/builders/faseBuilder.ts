@@ -8,7 +8,6 @@ export class FaseBuilder {
   private ehGrupo: boolean;
   private temProrrogacao: boolean;
   private temPenalti: boolean;
-  private exibirNoSite: boolean;
   private quantidadeClassificados: number;
   private categoria: Categoria;
 
@@ -38,11 +37,6 @@ export class FaseBuilder {
 
   comPenalti(temPenalti: boolean): this {
     this.temPenalti = temPenalti;
-    return this;
-  }
-
-  estaDisponivelNoSite(exibirNoSite: boolean): this {
-    this.exibirNoSite = exibirNoSite;
     return this;
   }
 
@@ -76,7 +70,6 @@ export class FaseBuilder {
       ehGrupo: this.ehGrupo,
       temProrrogacao: this.temProrrogacao,
       temPenalti: this.temPenalti,
-      exibirNoSite: this.exibirNoSite,
       quantidadeClassificados: this.quantidadeClassificados,
       categoria: this.categoria,
     });

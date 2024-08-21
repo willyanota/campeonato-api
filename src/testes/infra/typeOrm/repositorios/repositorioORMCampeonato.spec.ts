@@ -25,7 +25,6 @@ describe("Campeonato repositório ORM", () => {
       inscricaoDataInicio: "2023-12-20T20:39:46.546Z",
       inscricaoDataFim: new Date(),
       ativo: true,
-      exibirNoSite: false,
     };
     const modulo: TestingModule = await Test.createTestingModule({
       providers: [

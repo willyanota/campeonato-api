@@ -29,7 +29,6 @@ export class EditorDeFaseService {
       ehGrupo: faseDto.ehGrupo ?? fase.ehGrupo,
       temProrrogacao: faseDto.temProrrogacao ?? fase.temProrrogacao,
       temPenalti: faseDto.temPenalti ?? fase.temPenalti,
-      exibirNoSite: faseDto.exibirNoSite ?? fase.exibirNoSite,
       quantidadeClassificados:
         faseDto.quantidadeClassificados || fase.quantidadeClassificados,
       dataAtualizacao: new Date(),

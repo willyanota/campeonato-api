@@ -31,7 +31,6 @@ describe("criar fase", () => {
       ehGrupo: false,
       temProrrogacao: false,
       temPenalti: false,
-      exibirNoSite: false,
       quantidadeClassificados: 2,
     };
     repositorioFase = {

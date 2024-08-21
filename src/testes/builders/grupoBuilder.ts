@@ -36,7 +36,6 @@ export class GrupoBuilder {
         .comEhGrupo(false)
         .comProrrogacao(false)
         .comPenalti(false)
-        .estaDisponivelNoSite(false)
         .comQuantidadeClassificados(2)
         .comCategoria()
         .criar();

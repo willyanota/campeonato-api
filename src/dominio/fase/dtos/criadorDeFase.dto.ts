@@ -37,11 +37,6 @@ export class CriarFaseDTO {
   temPenalti: boolean;
 
   @ApiProperty()
-  @IsBoolean()
-  @IsNotEmpty({ message: "Campo exibir no site é obrigatório." })
-  exibirNoSite: boolean;
-
-  @ApiProperty()
   @IsNotEmpty({ message: "Campo quantidade de classificados é obrigatório." })
   @Type(() => Number)
   @IsInt({

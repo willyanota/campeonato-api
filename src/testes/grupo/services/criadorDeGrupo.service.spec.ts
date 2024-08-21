@@ -21,7 +21,6 @@ describe("criar grupo", () => {
       .comEhGrupo(false)
       .comProrrogacao(false)
       .comPenalti(false)
-      .estaDisponivelNoSite(false)
       .comQuantidadeClassificados(2)
       .comCategoria();
     grupoDto = {

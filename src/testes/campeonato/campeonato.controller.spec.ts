@@ -50,7 +50,6 @@ describe("Campeonato controller", () => {
         inscricaoDataInicio: moment().subtract(1, "days").toDate(),
         inscricaoDataFim: new Date(),
         ativo: true,
-        exibirNoSite: false,
       };
 
       await campeonatoController.criarCampeonato(criarCampeonatoDto);
@@ -69,7 +68,6 @@ describe("Campeonato controller", () => {
         inscricaoDataInicio: moment().subtract(1, "days").toDate(),
         inscricaoDataFim: new Date(),
         ativo: true,
-        exibirNoSite: false,
       };
 
       await campeonatoController.editarCampeonato(editarCampeonatoDto);

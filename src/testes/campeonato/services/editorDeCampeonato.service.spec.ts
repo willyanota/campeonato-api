@@ -17,7 +17,6 @@ describe("Editar campeonato", () => {
       inscricaoDataInicio: moment().subtract(1, "days").toDate(),
       inscricaoDataFim: new Date(),
       ativo: true,
-      exibirNoSite: false,
       dataCriacao: moment().subtract(1, "days").toDate(),
     };
     repositorioCampeonato = {

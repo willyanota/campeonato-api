@@ -6,7 +6,6 @@ CREATE TABLE public.campeonato (
   cam_inscricao_dt_inicio TIMESTAMP NOT NULL,
   cam_inscricao_dt_fim TIMESTAMP NOT NULL,
   cam_ativo BOOLEAN NOT NULL,
-  cam_exibir BOOLEAN NOT NULL,
   created_at TIMESTAMP DEFAULT NOW() NOT NULL,
   updated_at TIMESTAMP
 );

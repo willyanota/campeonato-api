@@ -45,9 +45,4 @@ export class CriarCampeonatoDTO {
   @IsBoolean()
   @IsNotEmpty({ message: "Campo ativo é obrigatório." })
   ativo: boolean;
-
-  @ApiProperty()
-  @IsBoolean()
-  @IsNotEmpty({ message: "Campo exibir no site é obrigatório." })
-  exibirNoSite: boolean;
 }

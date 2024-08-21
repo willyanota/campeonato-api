@@ -26,9 +26,6 @@ export class Fase {
   @Column({ name: "fas_tem_penalti" })
   temPenalti: boolean;
 
-  @Column({ name: "fas_exibir" })
-  exibirNoSite: boolean;
-
   @Column({ name: "fas_qtd_classificados" })
   quantidadeClassificados: number;
 

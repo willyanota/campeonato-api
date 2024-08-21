@@ -29,9 +29,6 @@ export class Campeonato {
   @Column({ name: "cam_ativo" })
   ativo: boolean;
 
-  @Column({ name: "cam_exibir" })
-  exibirNoSite: boolean;
-
   @CreateDateColumn({
     name: "created_at",
     type: "timestamp",

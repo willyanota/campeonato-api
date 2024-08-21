@@ -51,7 +51,6 @@ export class EditorDeCampeonatoService {
         inscricaoDataFim:
           campeonatoDto.inscricaoDataFim || campeonato.inscricaoDataFim,
         ativo: campeonatoDto.ativo ?? campeonato.ativo,
-        exibirNoSite: campeonatoDto.exibirNoSite ?? campeonato.exibirNoSite,
         dataAtualizacao: new Date(),
       });
 

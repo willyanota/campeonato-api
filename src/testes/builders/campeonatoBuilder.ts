@@ -8,7 +8,6 @@ export class CampeonatoBuilder {
   private inscricaoDataInicio: Date;
   private inscricaoDataFim: Date;
   private ativo = false;
-  private exibirNoSite = false;
 
   static umCampeonato(): CampeonatoBuilder {
     return new CampeonatoBuilder();
@@ -49,11 +48,6 @@ export class CampeonatoBuilder {
     return this;
   }
 
-  estaDisponivelNoSite(exibirNoSite: boolean): this {
-    this.exibirNoSite = exibirNoSite;
-    return this;
-  }
-
   criar(): Campeonato {
     return new Campeonato({
       id: this.id,
@@ -63,7 +57,6 @@ export class CampeonatoBuilder {
       inscricaoDataInicio: this.inscricaoDataInicio,
       inscricaoDataFim: this.inscricaoDataFim,
       ativo: this.ativo,
-      exibirNoSite: this.exibirNoSite,
     });
   }
 }
