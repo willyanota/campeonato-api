@@ -110,9 +110,7 @@ export class RepositorioORMJogo implements RepositorioJogo {
         .leftJoinAndSelect("CAT2.campeonato", "CAM2")
         .leftJoinAndSelect("JOG.local", "LOC")
         .leftJoinAndSelect("LOC.campeonato", "CAM3")
-        .where(`TRUNC(JOG.dataHora) = TO_DATE(:data, 'DD-MM-YYYY')`, {
-          data,
-        })
+        .where(`TRUNC(JOG.dataHora) = TO_DATE(:data, 'DD-MM-YYYY')`, { data })
         .getMany();
     } catch (error) {
       this.logger.error(error.message);
