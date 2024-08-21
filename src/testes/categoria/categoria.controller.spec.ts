@@ -9,8 +9,7 @@ describe("categoria controller", () => {
   const servicoMock = {
     criar: jest.fn(),
     editar: jest.fn(),
-    buscar: jest.fn(),
-    buscarPor: jest.fn(),
+    buscarPorCampeonatoId: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -89,7 +88,7 @@ describe("categoria controller", () => {
         buscarCategoriasDto,
       );
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorCampeonatoId).toHaveBeenCalledTimes(1);
     });
   });
 });

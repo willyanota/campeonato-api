@@ -9,7 +9,7 @@ describe("Equipe controller", () => {
   let equipeController: EquipeController;
   const servicoMock = {
     criar: jest.fn(),
-    buscarPor: jest.fn(),
+    buscarPorCampeonatoId: jest.fn(),
     editar: jest.fn(),
     excluir: jest.fn(),
     buscarEquipesDosCampeonatosAtivos: jest.fn(),
@@ -68,7 +68,7 @@ describe("Equipe controller", () => {
 
       await equipeController.buscarEquipesPeloCampeonatoId(buscarEquipesDto);
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorCampeonatoId).toHaveBeenCalledTimes(1);
     });
   });
 

@@ -8,7 +8,8 @@ describe("gol controller", () => {
   let golController: GolController;
   const servicoMock = {
     criar: jest.fn(),
-    buscarPor: jest.fn(),
+    buscarPorJogoId: jest.fn(),
+    buscarPorCategoriaId: jest.fn(),
     excluir: jest.fn(),
   };
 
@@ -60,7 +61,7 @@ describe("gol controller", () => {
 
       await golController.buscarGolsPorJogoId(buscarGolsPorJogoIdDto);
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorJogoId).toHaveBeenCalledTimes(1);
     });
   });
 

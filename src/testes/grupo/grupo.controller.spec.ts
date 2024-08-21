@@ -9,7 +9,7 @@ describe("Grupo controller", () => {
   const servicoMock = {
     criar: jest.fn(),
     editar: jest.fn(),
-    buscarPor: jest.fn(),
+    buscarPorCampeonatoId: jest.fn(),
     buscarTodos: jest.fn(),
   };
 
@@ -72,7 +72,7 @@ describe("Grupo controller", () => {
 
       await grupoController.buscarGruposPorCampeonatoId(buscarGruposDto);
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorCampeonatoId).toHaveBeenCalledTimes(1);
     });
   });
 

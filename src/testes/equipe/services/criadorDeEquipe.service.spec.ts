@@ -6,7 +6,7 @@ import { CriadorDeEquipeService } from "../../../dominio/equipe/services/criador
 import { CampeonatoBuilder } from "../../builders/campeonatoBuilder";
 import { CategoriaBuilder } from "../../builders/categoriaBuilder";
 
-describe("criar fase", () => {
+describe("criar equipe", () => {
   let repositorioEquipe: RepositorioEquipe;
   let repositorioCategoria: RepositorioCategoria;
   let criadorDeEquipeService: CriadorDeEquipeService;

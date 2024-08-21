@@ -8,7 +8,7 @@ describe("cartão controller", () => {
   let cartaoController: CartaoController;
   const servicoMock = {
     criar: jest.fn(),
-    buscarPor: jest.fn(),
+    buscarPorJogoId: jest.fn(),
     excluir: jest.fn(),
   };
 
@@ -61,7 +61,7 @@ describe("cartão controller", () => {
 
       await cartaoController.buscarCartoesPorJogoId(buscarCartoesDto);
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorJogoId).toHaveBeenCalledTimes(1);
     });
   });
 

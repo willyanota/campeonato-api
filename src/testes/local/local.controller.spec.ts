@@ -10,7 +10,7 @@ describe("local controller", () => {
     criar: jest.fn(),
     buscarTodos: jest.fn(),
     editar: jest.fn(),
-    buscarPor: jest.fn(),
+    buscarPorCampeonatoId: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -84,7 +84,7 @@ describe("local controller", () => {
 
       await localController.buscarLocaisPeloCampeonatoId(buscarLocais);
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorCampeonatoId).toHaveBeenCalledTimes(1);
     });
   });
 });

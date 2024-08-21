@@ -80,13 +80,11 @@ describe("criar gol", () => {
 
     await criadorDeGolService.criar(golDto);
 
-    expect(repositorioGol.salvar).toHaveBeenCalledWith(
-      golDto.jogoId,
-      golDto.jogadorId,
-      golDto.minuto,
-      golDto.periodo,
-      golDto.golContra,
-    );
+    expect(repositorioGol.salvar).toHaveBeenCalledWith({
+      ...golDto,
+      jogo,
+      jogador,
+    });
   });
 
   it("deve lançar uma exceção BadRequestException quando não houver um jogo existente", async () => {

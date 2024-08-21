@@ -9,7 +9,7 @@ describe("Fase controller", () => {
   const servicoMock = {
     criar: jest.fn(),
     editar: jest.fn(),
-    buscarPor: jest.fn(),
+    buscarPorCategoriaId: jest.fn(),
   };
 
   beforeEach(async () => {
@@ -80,7 +80,7 @@ describe("Fase controller", () => {
 
       await faseController.buscarFasesPorCategoriaId(buscadorDeFasesDto);
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorCategoriaId).toHaveBeenCalledTimes(1);
     });
   });
 });

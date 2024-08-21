@@ -10,12 +10,7 @@ describe("Jogador controller", () => {
   const servicoMock = {
     criar: jest.fn(),
     editar: jest.fn(),
-    deferirSolicitacao: jest.fn(),
-    indeferirSolicitacao: jest.fn(),
-    buscarSolicitacoes: jest.fn(),
-    buscarPor: jest.fn(),
-    ativar: jest.fn(),
-    solicitarInativacao: jest.fn(),
+    buscarPorEquipeId: jest.fn(),
     buscarPorCategoriaId: jest.fn(),
   };
 
@@ -49,6 +44,8 @@ describe("Jogador controller", () => {
     it('deve chamar o método "criarJogador" com êxito', async () => {
       const criarJogadorDto = {
         equipeId: 1,
+        nome: "nome do jogador",
+        idade: 26,
         cpf: "12345678900",
         ehGoleiro: true,
       };
@@ -61,7 +58,7 @@ describe("Jogador controller", () => {
 
   describe("editar jogador", () => {
     it('deve chamar o método "editarJogador" com êxito', async () => {
-      const editarJogadorDTO = { id: 1 };
+      const editarJogadorDTO = { id: 1, ehGoleiro: false };
 
       await jogadorController.editarJogador(editarJogadorDTO, imagem);
 
@@ -75,7 +72,7 @@ describe("Jogador controller", () => {
 
       await jogadorController.buscarJogadoresPorEquipeId(buscarJogadoresDto);
 
-      expect(servicoMock.buscarPor).toHaveBeenCalledTimes(1);
+      expect(servicoMock.buscarPorEquipeId).toHaveBeenCalledTimes(1);
     });
 
     it('deve chamar o método "buscarPorCategoriaId" do serviço apenas uma vez', async () => {

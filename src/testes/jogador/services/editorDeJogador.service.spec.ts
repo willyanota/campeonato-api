@@ -45,7 +45,10 @@ describe("editar jogador", () => {
 
     await editorDeJogadorService.editar(jogador.criar(), image);
 
-    expect(repositorioJogador.salvar).toHaveBeenCalledWith(jogador.criar());
+    expect(repositorioJogador.salvar).toHaveBeenCalledWith({
+      ...jogador,
+      dataAtualizacao: expect.any(Date),
+    });
   });
 
   it("deve lançar uma exceção BadRequestException quando não encontrar um jogador", async () => {
