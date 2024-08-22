@@ -32,13 +32,7 @@ async function bootstrap() {
   }
 
   if (configService.get<boolean>("SWAGGER_PUBLISH")) {
-    const config = new DocumentBuilder()
-      .setTitle("Campeonato")
-      .setDescription(
-        "API que concentrará as regras de negócio associadas ao Campeonato.",
-      )
-      .setVersion("1.0")
-      .build();
+    const config = new DocumentBuilder().setTitle("Campeonato Api").build();
 
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup("docs", app, document);
