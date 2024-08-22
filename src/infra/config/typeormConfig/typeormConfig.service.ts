@@ -28,8 +28,6 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
       },
     };
 
-    console.log(CONNECTIONS);
-
     return CONNECTIONS[connectionName]
       ? CONNECTIONS[connectionName]
       : CONNECTIONS.postgres;
