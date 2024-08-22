@@ -14,19 +14,16 @@ import { JogadorModulo } from "./dominio/jogador/jogador.module";
 import { JogoModulo } from "./dominio/jogo/jogo.module";
 import { LocalModulo } from "./dominio/local/local.module";
 import { MinioClientModulo } from "./dominio/minio-client/minio-client.module";
-import { EnvConfigModule } from "./infra/config/envConfig/config.module";
-import { TypeOrmConfigModule } from "./infra/config/typeormConfig/typeormConfig.module";
 import { TypeOrmConfigService } from "./infra/config/typeormConfig/typeormConfig.service";
 
 @Global()
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    EnvConfigModule,
-    TypeOrmConfigModule,
-    TypeOrmModule.forRootAsync({
-      useClass: TypeOrmConfigService,
+    ConfigModule.forRoot({
+      envFilePath: `envs/.env.${process.env.NODE_ENV || "local"}`,
+      isGlobal: true,
     }),
+    TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
     CampeonatoModulo,
     CategoriaModulo,
     FaseModulo,

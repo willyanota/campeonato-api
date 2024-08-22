@@ -1,12 +1,12 @@
 import { Injectable } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
 import { TypeOrmOptionsFactory } from "@nestjs/typeorm";
 import { TypeOrmModuleOptions } from "@nestjs/typeorm/dist";
 import * as path from "path";
-import { EnvConfigService } from "../envConfig/config.service";
 
 @Injectable()
 export class TypeOrmConfigService implements TypeOrmOptionsFactory {
-  constructor(private readonly configService: EnvConfigService) {}
+  constructor(private readonly configService: ConfigService) {}
 
   createTypeOrmOptions(connectionName?: string): TypeOrmModuleOptions {
     const CONNECTIONS = {
@@ -25,9 +25,10 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
           ),
         ],
         synchronize: false,
-        logging: this.configService.getBooleanValue("DB_LOGGING"),
       },
     };
+
+    console.log(CONNECTIONS);
 
     return CONNECTIONS[connectionName]
       ? CONNECTIONS[connectionName]

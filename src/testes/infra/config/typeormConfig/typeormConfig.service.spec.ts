@@ -1,5 +1,5 @@
+import { ConfigService } from "@nestjs/config";
 import { Test, TestingModule } from "@nestjs/testing";
-import { EnvConfigService } from "../../../../infra/config/envConfig/config.service";
 import { TypeOrmConfigService } from "../../../../infra/config/typeormConfig/typeormConfig.service";
 
 describe("TypeormConfigService", () => {
@@ -10,7 +10,7 @@ describe("TypeormConfigService", () => {
       providers: [
         TypeOrmConfigService,
         {
-          provide: EnvConfigService,
+          provide: ConfigService,
           useFactory: () => {},
         },
       ],
