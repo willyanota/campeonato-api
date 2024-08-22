@@ -1,6 +1,6 @@
 <h1>Sobre o projeto 💻
----
 
+---
 
 **Tecnologias**
 
@@ -12,7 +12,6 @@
 - Jest JS
 - Swagger
 - Postgres
-
 
 **Funcionalidades**
 
@@ -73,12 +72,9 @@
 - buscar cartões por jogo id;
 - excluir cartão;
 
-
 **Documentação SWAGGER**
 
-- Ambiente de Desenvolvimento Local:
-  http://localhost:3000/docs
-
+- http://localhost:3000/docs
 
 **Como rodar o projeto? 📄**
 
