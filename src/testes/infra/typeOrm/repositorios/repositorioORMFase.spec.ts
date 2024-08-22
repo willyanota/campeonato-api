@@ -21,7 +21,6 @@ describe("Fase repositório ORM", () => {
       .comEhGrupo(false)
       .comProrrogacao(false)
       .comPenalti(false)
-      .estaDisponivelNoSite(false)
       .comQuantidadeClassificados(2)
       .comCategoria();
     const modulo: TestingModule = await Test.createTestingModule({

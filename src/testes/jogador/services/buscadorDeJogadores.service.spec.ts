@@ -1,7 +1,7 @@
-import { RepositorioJogador } from 'src/dominio/jogador/repositorioJogador';
-import { BuscadorDeJogadoresService } from '../../../dominio/jogador/services/buscadorDeJogadores.service';
+import { RepositorioJogador } from "src/dominio/jogador/repositorioJogador";
+import { BuscadorDeJogadoresService } from "../../../dominio/jogador/services/buscadorDeJogadores.service";
 
-describe('Buscador de jogadores', () => {
+describe("Buscador de jogadores", () => {
   let buscadorDeJogadoresService: BuscadorDeJogadoresService;
   let repositorioJogador: RepositorioJogador;
 
@@ -10,7 +10,6 @@ describe('Buscador de jogadores', () => {
       salvar: jest.fn(),
       buscarPorEquipeId: jest.fn(),
       buscarPorId: jest.fn(),
-      buscarComSolicitacaoDeInativacao: jest.fn(),
       contarAtivosDaEquipe: jest.fn(),
       buscarPorCategoriaId: jest.fn(),
     };
@@ -19,7 +18,7 @@ describe('Buscador de jogadores', () => {
     );
   });
 
-  describe('buscar jogadores por equipe id', () => {
+  describe("buscar jogadores por equipe id", () => {
     it('deve chamar o método "buscarJogadoresPorEquipeId" com sucesso', async () => {
       const equipeId = 1;
 
@@ -31,17 +30,7 @@ describe('Buscador de jogadores', () => {
     });
   });
 
-  describe('buscar jogadores com solicitações de inativação', () => {
-    it('deve chamar o método "buscarJogadoresComSolicitacaoDeInativacao" com êxito', async () => {
-      await buscadorDeJogadoresService.buscarSolicitacoes();
-
-      expect(
-        repositorioJogador.buscarComSolicitacaoDeInativacao,
-      ).toHaveBeenCalledTimes(1);
-    });
-  });
-
-  describe('buscar jogadores por categoria id', () => {
+  describe("buscar jogadores por categoria id", () => {
     it('deve chamar o método "buscarJogadoresPorCategoriaId" com sucesso', async () => {
       const categoriaId = 1;
 
