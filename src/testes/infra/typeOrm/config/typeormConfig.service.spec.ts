@@ -1,6 +1,6 @@
 import { ConfigService } from "@nestjs/config";
 import { Test, TestingModule } from "@nestjs/testing";
-import { TypeOrmConfigService } from "../../../../infra/config/typeormConfig/typeormConfig.service";
+import { TypeOrmConfigService } from "../../../../infra/typeOrm/config/typeormConfig.service";
 
 describe("TypeormConfigService", () => {
   let service: TypeOrmConfigService;

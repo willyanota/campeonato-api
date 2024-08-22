@@ -3,7 +3,7 @@ import * as path from "path";
 
 const envFileLocation = path.join(
   __dirname,
-  "../../../..",
+  "../../..",
   "envs",
   ".env.".concat(process.env.NODE_ENV || "local"),
 );
