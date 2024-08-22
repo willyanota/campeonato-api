@@ -1,6 +1,6 @@
 <h1>Sobre o projeto 💻
-
 ---
+
 
 **Tecnologias**
 
@@ -12,6 +12,7 @@
 - Jest JS
 - Swagger
 - Postgres
+
 
 **Funcionalidades**
 
@@ -72,26 +73,24 @@
 - buscar cartões por jogo id;
 - excluir cartão;
 
+
 **Documentação SWAGGER**
 
 - Ambiente de Desenvolvimento Local:
   http://localhost:3000/docs
 
-  Formato JSON:
-  http://localhost:3000/docs-json
-
 
 **Como rodar o projeto? 📄**
 
-- Para rodar localmente é necessário criar um arquivo chamado '.env.local' dentro do diretório /envs/ na raiz do projeto, nele deve ser configurado as variáveis de ambiente do banco de dados, minio e demais configurações necessárias.
-
-Para executar os testes:
-
 ```bash
-# Na pasta raiz, executar o comando para instalar as dependências do node:
+# Na pasta raiz, executar o comando para instalar as dependências do node e rodar o projeto:
 
 npm install
-
 npm run start
 
+# Para rodar o docker-compose do banco de dados
+
+cd db
+docker-compose up
 ```
+**Rodar os scripts de criação das tabelas na pasta infra/sql, as migrations não estão habilitadas**
