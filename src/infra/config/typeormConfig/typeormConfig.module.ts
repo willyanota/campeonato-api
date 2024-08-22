@@ -1,10 +1,10 @@
 import { Global, Module } from "@nestjs/common";
-import { ConfigModuleEnv } from "../envConfig/config.module";
+import { EnvConfigModule } from "../envConfig/config.module";
 import { TypeOrmConfigService } from "./typeormConfig.service";
 
 @Global()
 @Module({
-  imports: [ConfigModuleEnv],
+  imports: [EnvConfigModule],
   providers: [TypeOrmConfigService],
   exports: [TypeOrmConfigService],
 })

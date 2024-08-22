@@ -36,7 +36,7 @@ export class CampeonatoController {
     return await this.buscadorDeCampeonatosService.buscarTodos();
   }
 
-  @Get("buscar-pelo-id/:id")
+  @Get("buscar-por-id/:id")
   public async buscarCampeonatoPeloId(
     @Param() campeonatoDto: BuscarCampeonatoDTO,
   ): Promise<Campeonato> {

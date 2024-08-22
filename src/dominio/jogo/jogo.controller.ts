@@ -27,7 +27,7 @@ export class JogoController {
     await this.criadorDeJogoService.criar(jogoDto);
   }
 
-  @Get("buscar-pelo-campeonato-id/:id")
+  @Get("buscar-por-campeonato-id/:id")
   public async buscarJogosPeloCampeonatoId(
     @Param() jogoDto: BuscarJogosPeloCampeonatoIdDTO,
   ): Promise<Jogo[]> {

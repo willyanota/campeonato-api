@@ -14,7 +14,7 @@ import { JogadorModulo } from "./dominio/jogador/jogador.module";
 import { JogoModulo } from "./dominio/jogo/jogo.module";
 import { LocalModulo } from "./dominio/local/local.module";
 import { MinioClientModulo } from "./dominio/minio-client/minio-client.module";
-import { ConfigModuleEnv } from "./infra/config/envConfig/config.module";
+import { EnvConfigModule } from "./infra/config/envConfig/config.module";
 import { TypeOrmConfigModule } from "./infra/config/typeormConfig/typeormConfig.module";
 import { TypeOrmConfigService } from "./infra/config/typeormConfig/typeormConfig.service";
 
@@ -22,7 +22,7 @@ import { TypeOrmConfigService } from "./infra/config/typeormConfig/typeormConfig
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    ConfigModuleEnv,
+    EnvConfigModule,
     TypeOrmConfigModule,
     TypeOrmModule.forRootAsync({
       useClass: TypeOrmConfigService,

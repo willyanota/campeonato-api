@@ -46,7 +46,7 @@ export class EquipeController {
     await this.editorDeEquipeService.editar(equipeDto);
   }
 
-  @Get("buscar-pelo-campeonato-id/:id")
+  @Get("buscar-por-campeonato-id/:id")
   public async buscarEquipesPeloCampeonatoId(
     @Param() equipeDto: BuscarEquipesPorCampeonatoIdDTO,
   ): Promise<Equipe[]> {
@@ -62,7 +62,7 @@ export class EquipeController {
     await this.excluidorDeEquipeService.excluir(equipeDto.id);
   }
 
-  @Get("buscar-equipes-dos-campeonatos-ativos")
+  @Get("buscar-dos-campeonatos-ativos")
   public async buscarEquipesDosCampeonatosAtivos(): Promise<Equipe[]> {
     return await this.buscadorDeEquipesService.buscarEquipesDosCampeonatosAtivos();
   }
@@ -76,25 +76,28 @@ export class EquipeController {
     );
   }
 
+  @Put("adicionar-grupo")
   public async adicionarGrupoAEquipe(
     @Body() equipeDto: AdicionarGrupoAEquipeDTO,
   ): Promise<void> {
     await this.editorDeEquipeService.adicionarGrupoAEquipe(equipeDto);
   }
 
+  @Get("buscar-por-grupo-id/:id")
   public async buscarEquipesPorGrupoId(
     @Param() equipeDto: BuscarEquipesPorGrupoIdDTO,
   ): Promise<Equipe[]> {
     return await this.buscadorDeEquipesService.buscarPorGrupoId(equipeDto.id);
   }
 
+  @Put("remover-grupo")
   public async removerGrupoDaEquipe(
     @Body() equipeDto: RemoverGrupoDaEquipeDTO,
   ): Promise<void> {
     await this.editorDeEquipeService.removerGrupoDaEquipe(equipeDto.id);
   }
 
-  @Get("buscar-equipes-do-grupo/:id")
+  @Get("buscar-do-grupo/:id")
   public async buscarEquipesDoGrupo(
     @Param() equipeDto: BuscarEquipesPorGrupoIdDTO,
   ): Promise<Equipe[]> {

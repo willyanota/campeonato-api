@@ -32,7 +32,7 @@ export class LocalController {
     await this.editorDeLocalService.editar(localDto);
   }
 
-  @Get("buscar-pelo-campeonato-id/:id")
+  @Get("buscar-por-campeonato-id/:id")
   public async buscarLocaisPeloCampeonatoId(
     @Param() localDto: BuscarLocaisPeloCampeonatoIdDTO,
   ): Promise<Local[]> {

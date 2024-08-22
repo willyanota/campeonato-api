@@ -1,13 +1,13 @@
 import { Test, TestingModule } from "@nestjs/testing";
-import { ConfigService } from "../../../../infra/config/envConfig/config.service";
+import { EnvConfigService } from "../../../../infra/config/envConfig/config.service";
 
 describe("ConfigService", () => {
-  let service: ConfigService;
+  let service: EnvConfigService;
 
   beforeEach(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
       providers: [
-        ConfigService,
+        EnvConfigService,
         {
           provide: String,
           useValue: "src/testes/infra/config/envConfig/.env.test",
@@ -15,7 +15,7 @@ describe("ConfigService", () => {
       ],
     }).compile();
 
-    service = moduleRef.get<ConfigService>(ConfigService);
+    service = moduleRef.get<EnvConfigService>(EnvConfigService);
   });
 
   it("should be defined", () => {

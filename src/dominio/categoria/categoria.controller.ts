@@ -31,7 +31,7 @@ export class CategoriaController {
     await this.editorDeCategoriaService.editar(categoriaDto);
   }
 
-  @Get("buscar-pelo-campeonato-id/:id")
+  @Get("buscar-por-campeonato-id/:id")
   public async buscarCategoriasPeloCampeonatoId(
     @Param() categoriaDto: BuscarCategoriasPeloCampeonatoIdDTO,
   ): Promise<Categoria[]> {
