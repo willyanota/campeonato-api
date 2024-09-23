@@ -143,8 +143,8 @@ export class RepositorioORMEquipe implements RepositorioEquipe {
           END AS resultado,
           ROW_NUMBER() OVER (PARTITION BY eq.EQU_ID ORDER BY jg.JOG_DATAHORA DESC) AS rn
           FROM PUBLIC.TB_EQUIPE eq
-          JOIN PUBLIC.TB_JOGO jg ON jg.EQ1_ID = eq.EQU_ID OR jg.EQ2_ID = eq.EQU_ID
-          WHERE eq.GRU_ID = ${grupoId} AND jg.JOG_REALIZADO = 1
+          LEFT JOIN PUBLIC.TB_JOGO jg ON jg.EQ1_ID = eq.EQU_ID OR jg.EQ2_ID = eq.EQU_ID
+          WHERE eq.GRU_ID = ${grupoId}
         ) sub
         WHERE sub.rn <= 3
         GROUP BY sub.equipeId, 
