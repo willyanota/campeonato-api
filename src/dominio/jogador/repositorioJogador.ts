@@ -6,4 +6,5 @@ export interface RepositorioJogador {
   buscarPorId(id: number): Promise<Jogador>;
   contarAtivosDaEquipe(equipeId: number): Promise<number>;
   buscarPorCategoriaId(categoriaId: number): Promise<Jogador[]>;
+  buscarPorCpfNaEquipe(cpf: string, equipeId: number): Promise<Jogador>;
 }

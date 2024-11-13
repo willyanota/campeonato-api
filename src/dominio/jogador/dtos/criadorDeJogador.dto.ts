@@ -1,6 +1,7 @@
 import { ApiProperty } from "@nestjs/swagger";
+import { Transform } from "class-transformer";
 import {
-  IsBooleanString,
+  IsBoolean,
   IsInt,
   IsNotEmpty,
   IsNumberString,
@@ -31,6 +32,7 @@ export class CriarJogadorDTO {
   cpf: string;
 
   @ApiProperty()
-  @IsBooleanString()
+  @Transform(({ value }) => value === "true")
+  @IsBoolean()
   ehGoleiro: boolean;
 }

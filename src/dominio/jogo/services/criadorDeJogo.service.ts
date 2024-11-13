@@ -51,7 +51,7 @@ export class CriadorDeJogoService {
       );
     }
 
-    if (equipe1 && equipe2 && equipe1.grupo.id !== equipe2.grupo.id) {
+    if (equipe1.grupo.id !== equipe2.grupo.id) {
       throw new BadRequestException(
         "Não é possível adicionar um jogo com equipes de grupos diferentes.",
       );

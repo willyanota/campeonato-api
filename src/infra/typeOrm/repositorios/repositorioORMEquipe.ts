@@ -98,17 +98,7 @@ export class RepositorioORMEquipe implements RepositorioEquipe {
   public async buscarPorGrupoId(grupoId: number): Promise<Equipe[]> {
     try {
       const equipes = await this.dataSource.query(
-        `SELECT 
-        sub.equipeId,
-        sub.nome,
-        sub.abertura,
-        sub.pontos,
-        sub.vitorias,
-        sub.empates,
-        sub.derrotas,
-        sub.golsPro,
-        sub.golsContra,
-        sub.saldoGols,
+        `SELECT sub.equipeId, sub.nome, sub.abertura, sub.pontos, sub.vitorias, sub.empates, sub.derrotas, sub.golsPro, sub.golsContra, sub.saldoGols,
         LISTAGG(sub.resultado, ', ') WITHIN GROUP (ORDER BY sub.jogoDataHora DESC) AS resultados
         FROM (
           SELECT 
@@ -127,17 +117,17 @@ export class RepositorioORMEquipe implements RepositorioEquipe {
             WHEN eq.EQU_ID = jg.EQ1_ID THEN
               CASE
                 WHEN (jg.JOG_GOLSREGULAREQ1 + jg.JOG_GOLSPRORROGACAOEQ1 + jg.JOG_GOLSPENALTIEQ1) > 
-                    (jg.JOG_GOLSREGULAREQ2 + jg.JOG_GOLSPRORROGACAOEQ2 + jg.JOG_GOLSPENALTIEQ2) THEN 'Vitória'
+                  (jg.JOG_GOLSREGULAREQ2 + jg.JOG_GOLSPRORROGACAOEQ2 + jg.JOG_GOLSPENALTIEQ2) THEN 'Vitória'
                 WHEN (jg.JOG_GOLSREGULAREQ1 + jg.JOG_GOLSPRORROGACAOEQ1 + jg.JOG_GOLSPENALTIEQ1) = 
-                    (jg.JOG_GOLSREGULAREQ2 + jg.JOG_GOLSPRORROGACAOEQ2 + jg.JOG_GOLSPENALTIEQ2) THEN 'Empate'
+                  (jg.JOG_GOLSREGULAREQ2 + jg.JOG_GOLSPRORROGACAOEQ2 + jg.JOG_GOLSPENALTIEQ2) THEN 'Empate'
                 ELSE 'Derrota'
               END
             WHEN eq.EQU_ID = jg.EQ2_ID THEN
               CASE
                 WHEN (jg.JOG_GOLSREGULAREQ2 + jg.JOG_GOLSPRORROGACAOEQ2 + jg.JOG_GOLSPENALTIEQ2) > 
-                    (jg.JOG_GOLSREGULAREQ1 + jg.JOG_GOLSPRORROGACAOEQ1 + jg.JOG_GOLSPENALTIEQ1) THEN 'Vitória'
+                  (jg.JOG_GOLSREGULAREQ1 + jg.JOG_GOLSPRORROGACAOEQ1 + jg.JOG_GOLSPENALTIEQ1) THEN 'Vitória'
                 WHEN (jg.JOG_GOLSREGULAREQ2 + jg.JOG_GOLSPRORROGACAOEQ2 + jg.JOG_GOLSPENALTIEQ2) = 
-                    (jg.JOG_GOLSREGULAREQ1 + jg.JOG_GOLSPRORROGACAOEQ1 + jg.JOG_GOLSPENALTIEQ1) THEN 'Empate'
+                  (jg.JOG_GOLSREGULAREQ1 + jg.JOG_GOLSPRORROGACAOEQ1 + jg.JOG_GOLSPENALTIEQ1) THEN 'Empate'
                 ELSE 'Derrota'
               END
           END AS resultado,
@@ -147,16 +137,8 @@ export class RepositorioORMEquipe implements RepositorioEquipe {
           WHERE eq.GRU_ID = ${grupoId}
         ) sub
         WHERE sub.rn <= 3
-        GROUP BY sub.equipeId, 
-        sub.nome, 
-        sub.abertura,
-        sub.pontos,
-        sub.vitorias,
-        sub.empates,
-        sub.derrotas,
-        sub.golsPro,
-        sub.golsContra,
-        sub.saldoGols
+        GROUP BY sub.equipeId, sub.nome, sub.abertura, sub.pontos, sub.vitorias, sub.empates, sub.derrotas, sub.golsPro, sub.golsContra, sub.saldoGols
+        ORDER BY sub.pontos DESC, sub.saldoGols DESC
         `,
       );
 

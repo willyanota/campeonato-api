@@ -41,6 +41,15 @@ export class CriadorDeJogadorService {
       );
     }
 
+    const jogador: Jogador = await this.repositorioJogador.buscarPorCpfNaEquipe(
+      jogadorDto.cpf,
+      jogadorDto.equipeId,
+    );
+
+    if (jogador) {
+      throw new BadRequestException("Jogador já cadastrado na equipe.");
+    }
+
     if (
       !(
         image.mimetype.includes("jpeg") ||
@@ -49,6 +58,20 @@ export class CriadorDeJogadorService {
       )
     ) {
       throw new BadRequestException("Tipo de arquivo não suportado.");
+    }
+
+    if (
+      (jogadorDto.ehGoleiro &&
+        !equipe.categoria.goleiroForaIdade &&
+        (jogadorDto.idade < equipe.categoria.idadeMinima ||
+          jogadorDto.idade > equipe.categoria.idadeMaxima)) ||
+      (!jogadorDto.ehGoleiro &&
+        (jogadorDto.idade < equipe.categoria.idadeMinima ||
+          jogadorDto.idade > equipe.categoria.idadeMaxima))
+    ) {
+      throw new BadRequestException(
+        `Jogador fora do intervalo de idades da categoria. Permitido: ${equipe.categoria.idadeMinima} a ${equipe.categoria.idadeMaxima} anos.`,
+      );
     }
 
     const fileSizeMB = image.size / (1024 * 1024); // Converter para MB

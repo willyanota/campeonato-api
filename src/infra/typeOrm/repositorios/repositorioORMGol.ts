@@ -65,20 +65,22 @@ export class RepositorioORMGol implements RepositorioGol {
   public async buscarPorCategoriaId(categoriaId: number): Promise<Gol[]> {
     try {
       const golsPorJogador = await this.dataSource.query(
-        `SELECT GOL.JGD_ID AS jogadorId, JGD.JGD_NOME AS jogadorNome, COUNT(*) AS numeroGols
+        `SELECT GOL.JGD_ID AS jogadorId, JGD.JGD_NOME AS jogadorNome, EQU.EQU_NOME AS equipeNome, COUNT(*) AS numeroGols
         FROM PUBLIC.TB_GOL GOL
         LEFT JOIN PUBLIC.TB_JOGADOR JGD ON JGD.JGD_ID = GOL.JGD_ID
+        LEFT JOIN PUBLIC.TB_EQUIPE EQU ON EQU.EQU_ID = JGD.EQU_ID
         LEFT JOIN PUBLIC.TB_JOGO JOG ON JOG.JOG_ID = GOL.JOG_ID
         LEFT JOIN PUBLIC.TB_FASE FAS ON FAS.FAS_ID = JOG.FAS_ID
         LEFT JOIN PUBLIC.TB_CATEGORIA CAT ON CAT.CAT_ID = FAS.CAT_ID
         WHERE CAT.CAT_ID = ${categoriaId} AND GOL.GOL_GOLCONTRA = 0
-        GROUP BY GOL.JGD_ID, JGD.JGD_NOME
+        GROUP BY GOL.JGD_ID, JGD.JGD_NOME, EQU.EQU_NOME
         ORDER BY numeroGols DESC`,
       );
 
       return golsPorJogador.map((gols) => ({
         jogadorId: gols.JOGADORID,
         jogadorNome: gols.JOGADORNOME,
+        equipeNome: gols.EQUIPENOME,
         numeroGols: gols.NUMEROGOLS,
       }));
     } catch (error) {

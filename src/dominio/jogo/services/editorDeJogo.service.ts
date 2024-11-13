@@ -67,6 +67,12 @@ export class EditorDeJogoService {
       throw new BadRequestException("Jogo não encontrado.");
     }
 
+    if (jogo.realizado) {
+      throw new BadRequestException(
+        "O resultado deste jogo já foi cadastrado.",
+      );
+    }
+
     if (!jogo.possuiFaseComCategoriaComCampeonatoAtivo()) {
       throw new BadRequestException(
         "Não é possível alterar um jogo com uma fase de um campeonato inativo.",

@@ -87,4 +87,20 @@ export class RepositorioORMJogador implements RepositorioJogador {
       );
     }
   }
+
+  public async buscarPorCpfNaEquipe(
+    cpf: string,
+    equipeId: number,
+  ): Promise<Jogador> {
+    try {
+      return await this.repositorioJogador.findOne({
+        where: { cpf: cpf, equipe: { id: equipeId } },
+      });
+    } catch (error) {
+      this.logger.error(error.message);
+      throw new InternalServerErrorException(
+        "Erro ao buscar jogador na equipe no banco de dados.",
+      );
+    }
+  }
 }
