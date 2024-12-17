@@ -25,11 +25,10 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
           ),
         ],
         synchronize: false,
+        logging: this.configService.get("DB_LOGGING") === "true",
       },
     };
 
-    return CONNECTIONS[connectionName]
-      ? CONNECTIONS[connectionName]
-      : CONNECTIONS.postgres;
+    return CONNECTIONS[connectionName || "postgres"];
   }
 }

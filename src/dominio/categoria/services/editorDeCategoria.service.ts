@@ -49,7 +49,7 @@ export class EditorDeCategoriaService {
         categoriaDto.maxCartoesVermelhosPorJogo ||
         categoria.maxCartoesVermelhosPorJogo,
       maxHorasInscricaoJogador:
-        categoriaDto.maxHorasInscricaoJogador ||
+        categoriaDto.maxHorasInscricaoJogador ??
         categoria.maxHorasInscricaoJogador,
       dataAtualizacao: new Date(),
     });
